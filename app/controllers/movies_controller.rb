@@ -28,6 +28,12 @@ class MoviesController < ApplicationController
     end
   end
 
+  # GET /movies-search
+  def search
+    movies = IMDBService.new.search(params[:search_string])
+    @results = movies["Search"]
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie

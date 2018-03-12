@@ -1,5 +1,11 @@
-<h1>New List</h1>
+<div class="row">
+  <h1>Create A New List</h1>
+</div>
 
 <%= render 'form', list: @list %>
-
-<%= link_to 'Back', lists_path %>
+<br>
+<%= render 'movies/search_form' %>
+<br>
+<div class="row">
+  <%= link_to 'Back', lists_path %>
+</div>

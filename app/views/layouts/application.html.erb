@@ -8,7 +8,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="bg">
     <%= render 'layouts/header' %>
     <div class="container">
       <% flash.each do |key, value| %>
@@ -21,6 +21,5 @@
       <% end %>
       <%= yield %>
     </div>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

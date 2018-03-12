@@ -40,6 +40,10 @@ gem 'devise'
 # Font awesome for easy icons
 gem 'font-awesome-rails'
 
+# HTTParty & json for communication with the OMDBapi
+gem 'httparty'
+gem 'json'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
