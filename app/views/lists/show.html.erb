@@ -1,7 +1,7 @@
-<p>
-  <strong>Title:</strong>
-  <%= @list.title %>
-</p>
+<h1><%= @list.title %></h1>
+<% @list.movies.each do |movie| %>
+  <%= render partial: 'movies/movie', locals: {movie: movie} %>
+<% end %>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>

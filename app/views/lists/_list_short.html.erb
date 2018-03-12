@@ -1,0 +1,9 @@
+<div class="card short-list-container">
+  <%= link_to list_path(list), class: "card-body" do %>
+  <div class="row">
+    <h3 class="col-sm"><%= list.title %></h3>
+    <p class="col-sm">Average Rating: <%= list.avg_rating(current_user.id) %></p>
+    <p class="col-sm"># of Movies: <%= list.movies.count %></p>
+  </div>
+  <% end %>
+</div>
