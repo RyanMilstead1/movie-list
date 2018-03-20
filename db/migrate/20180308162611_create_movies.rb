@@ -8,7 +8,6 @@ class CreateMovies < ActiveRecord::Migration[5.1]
       t.string :genre
       t.string :runtime
       t.string :director
-      t.string :type
       t.text :plot
 
       t.timestamps

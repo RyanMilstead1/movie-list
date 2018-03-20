@@ -1,19 +1,12 @@
-<p>
-  <strong>Title:</strong>
-  <%= @movie.title %>
-</p>
-
-<p>
-  <strong>Year:</strong>
-  <%= @movie.year %>
-</p>
-
-<p>
-  <strong>Poster:</strong>
-  <%= @movie.poster %>
-</p>
-
-<p>
-  <strong>Genre:</strong>
-  <%= @movie.genre %>
-</p>
+<div class="card movie-container">
+  <div class="row card-body">
+    <div class="col-3">
+      <div class="col-sm poster"><%= image_tag(movie.poster) %></div>
+    </div>
+    <div class="col-9">
+      <h3 class="col-sm"><%= movie.title %></h3>
+      <p class="col-sm">Year: <%= movie.year %></p>
+      <p class="col-sm">Genre: <%= movie.genre %></p>
+    </div>
+  </div>
+</div>

@@ -44,6 +44,9 @@ gem 'font-awesome-rails'
 gem 'httparty'
 gem 'json'
 
+# Allows frontend rating functionality
+gem 'ratyrate'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

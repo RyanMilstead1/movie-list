@@ -15,6 +15,13 @@ ActiveRecord::Schema.define(version: 20180308164101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "list_movies", force: :cascade do |t|
+    t.bigint "list_id"
+    t.bigint "movie_id"
+    t.index ["list_id"], name: "index_list_movies_on_list_id"
+    t.index ["movie_id"], name: "index_list_movies_on_movie_id"
+  end
+
   create_table "lists", force: :cascade do |t|
     t.string "title"
     t.bigint "user_id"
@@ -23,18 +30,15 @@ ActiveRecord::Schema.define(version: 20180308164101) do
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
-  create_table "lists_movies", force: :cascade do |t|
-    t.bigint "list_id"
-    t.bigint "movie_id"
-    t.index ["list_id"], name: "index_lists_movies_on_list_id"
-    t.index ["movie_id"], name: "index_lists_movies_on_movie_id"
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title"
+    t.string "imdbID"
     t.string "year"
     t.string "poster"
     t.string "genre"
+    t.string "runtime"
+    t.string "director"
+    t.text "plot"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
