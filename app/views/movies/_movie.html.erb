@@ -3,10 +3,20 @@
     <div class="col-3">
       <div class="col-sm poster"><%= image_tag(movie.poster) %></div>
     </div>
-    <div class="col-9">
+    <div class="col-3">
       <h3 class="col-sm"><%= movie.title %></h3>
+      <% if movie.user_rating(current_user.id).nil? %>
+        <%= render partial: 'ratings/create', locals: {rating: movie.ratings.build(:user => current_user, :movie => movie)} %>
+      <% else %>
+        <%= render partial: 'ratings/create', locals: {rating: movie.user_rating(current_user.id)} %>
+      <% end %>
+    </div>
+    <div class="col-6">
       <p class="col-sm">Year: <%= movie.year %></p>
       <p class="col-sm">Genre: <%= movie.genre %></p>
+      <p class="col-sm">Runtime: <%= movie.runtime %></p>
+      <p class="col-sm">Director: <%= movie.director %></p>
+      <p class="col-sm">Plot: <%= movie.plot %></p>
     </div>
   </div>
 </div>
