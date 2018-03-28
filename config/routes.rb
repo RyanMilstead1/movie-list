@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :lists
+  resources :ratings, :defaults => { :format => :json }, only: [:create]
   post 'movie-search', to: 'movies#search'
 
   devise_for :users

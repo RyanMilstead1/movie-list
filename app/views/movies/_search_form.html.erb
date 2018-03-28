@@ -1,9 +1,7 @@
-<div class="row">
-  <%= form_with url: "/movie-search" do |f| %>
-    <div class="form-group">
-      <%= f.label :search_string, "Search for movies for your list:" %>
-      <%= f.text_field :search_string, placeholder: "My Left Foot", class: "form-control" %>
-    </div>
-    <%= f.submit "Search", class: "btn btn-success" %>
-  <% end %>
-</div>
+<%= form_with url: movie_search_path do |f| %>
+  <div class="form-group">
+    <%= f.label :search_string, "Search for movies for your list:" %>
+    <%= f.text_field :search_string, placeholder: "My Left Foot", class: "form-control" %>
+  </div>
+  <%= f.submit "Search", class: "btn btn-success" %>
+<% end %>

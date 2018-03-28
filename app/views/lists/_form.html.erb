@@ -1,24 +1,21 @@
-<div class="row justify-content-start">
-  <%= form_with(model: list, local: true) do |form| %>
-  <% if list.errors.any? %>
-    <% list.errors.full_messages.each do |message| %>
-    <div class="alert alert-danger alert-dismissible fade show">
-      <%= message %>
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <% end %>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :list_title, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Submit", class: "btn btn-primary" %>
+<%= form_with(model: list, local: true) do |form| %>
+<% if list.errors.any? %>
+  <% list.errors.full_messages.each do |message| %>
+  <div class="alert alert-danger alert-dismissible fade show">
+    <%= message %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
   </div>
   <% end %>
-  <%= render 'movies/search_index' %>
+<% end %>
+
+<div class="form-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, id: :list_title, class: "form-control" %>
 </div>
+
+<div class="actions">
+  <%= form.submit "Submit", class: "btn btn-primary" %>
+</div>
+<% end %>
