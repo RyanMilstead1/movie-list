@@ -7,8 +7,12 @@ class Movie < ApplicationRecord
   def add_imdb_data
     downcased_movie_hash = {}
     movie = IMDBService.new.get_movie(imdbID)
-    movie.each_pair { |k,v| downcased_movie_hash.merge!({k.downcase => v}) }
+    movie.each_pair { |k,v| downcased_movie_hash.merge!(k.downcase => v) }
     downcased_movie_hash.select! {|k,v| Movie.column_names.include?(k)}
     self.update_attributes(downcased_movie_hash)
+  end
+
+  def user_rating(user_id)
+    ratings.where(user_id: user_id)[0]
   end
 end

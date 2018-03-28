@@ -1,0 +1,21 @@
+<% id = Random.rand(1000) %>
+<div id="star-rating-<%= id %>" data-score=<%= rating.score %>></div>
+<script>
+$('#star-rating-<%= id %>').raty({
+  path: '/assets/',
+  number: 10,
+  click: function(score, evt) {
+    $.post({
+      url: "/ratings/",
+      data: {
+        rating: {
+          user_id: <%= rating.user.id %>,
+          movie_id: <%= rating.movie.id %>,
+          score: score,
+        }
+      },
+      dataType: "json"
+    });
+  }
+})
+</script>
