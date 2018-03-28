@@ -32,6 +32,10 @@ class MoviesController < ApplicationController
   def search
     movies = IMDBService.new.search(params[:search_string])
     @results = movies["Search"]
+
+    respond_to do |format|
+      format.js {render layout: false}
+    end
   end
 
   private
