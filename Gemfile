@@ -32,6 +32,7 @@ gem 'jbuilder', '~> 2.5'
 # Boostrap gem and dependencies for easy styling
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'popper_js'
 
 #  Devise for authentication

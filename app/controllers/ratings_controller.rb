@@ -4,7 +4,7 @@ class RatingsController < ApplicationController
       @rating = Rating.find_by_user_id_and_movie_id(rating_params[:user_id], rating_params[:movie_id])
       @rating.score = rating_params[:score]
     else
-      @rating = Rating.new(rating_params)
+      @rating = Rating.create(rating_params)
     end
 
     head :ok

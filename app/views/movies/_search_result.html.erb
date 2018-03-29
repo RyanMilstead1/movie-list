@@ -1,1 +1,41 @@
-<h3>movie.title</h3>
+<div class="card" id=<%= movie.id %>>
+  <div class="row card-body">
+    <div class="col-3">
+      <% if movie.poster == "N/A" %>
+        <div class="col-sm poster"><%= image_tag("stock-poster") %></div>
+      <% else %>
+        <div class="col-sm poster"><%= image_tag(movie.poster) %></div>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <h3 class="col-sm"><%= movie.title %></h3>
+      <p class="col-sm">Year: <%= movie.year %></p>
+      <p class="col-sm">Genre: <%= movie.genre %></p>
+      <p class="col-sm">Runtime: <%= movie.runtime %></p>
+      <p class="col-sm">Director: <%= movie.director %></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("#"+<%= movie.id %>).click(function () {
+    var movie_id_val = $('#movie_ids').val();
+    var movie_id_arr = movie_id_val.split(',');
+    var movie_id = $(this).attr('id');
+    var _this = this;
+
+    if (!$(this).hasClass("bg-success")) {
+      $(this).addClass("bg-success", 1000, "easeOutBounce");
+      $('#movie_ids').val(movie_id_val + movie_id + ",");
+      $('#added-movies').append('<li id="movie-<%= movie.id %>"><%= movie.title %></li>');
+    } else {
+      $(this).removeClass("bg-success", 1000, "easeOutBounce");
+      $('#added-movies > #movie-<%= movie.id %>').remove();
+      // To remove element from aaray
+      movie_id_arr = jQuery.grep(movie_id_arr, function (n) {
+        return n == $(_this).attr("id")
+      });
+      $('#movie_ids').val(movie_id_arr.join(','));
+    }
+  });
+</script>

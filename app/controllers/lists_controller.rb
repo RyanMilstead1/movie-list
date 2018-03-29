@@ -25,6 +25,8 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
+    list_movies = params.delete("movie_ids").split(",")
+    params[:list][:movie_ids] = list_movies
     @list = List.new(list_params)
     @list.user = current_user
 
@@ -71,6 +73,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:title)
+      params.require(:list).permit(:title,movie_ids: [])
     end
 end

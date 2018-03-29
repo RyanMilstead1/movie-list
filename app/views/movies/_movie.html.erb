@@ -1,7 +1,11 @@
-<div class="card movie-container">
+<div class="card">
   <div class="row card-body">
     <div class="col-3">
+      <% if movie.poster == "N/A" %>
+      <div class="col-sm poster"><%= image_tag("stock-poster") %></div>
+      <% else %>
       <div class="col-sm poster"><%= image_tag(movie.poster) %></div>
+      <% end %>
     </div>
     <div class="col-3">
       <h3 class="col-sm"><%= movie.title %></h3>

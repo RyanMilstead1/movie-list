@@ -1,4 +1,12 @@
 <div class="results-container">
-  <h2>Search Results</h2>
-  <div class="results-list"></div>
+  <% if results.empty? %>
+  <h4>No results</h4>
+  <% else %>
+  <h2>Search Results <small id="searchHelp" class="form-text text-muted">Click a movie to add it to your list</small></h2>
+  <div class="results-list">
+    <% results.each do |movie| %>
+      <%= render partial: 'search_result', locals: {movie: movie} %>
+    <% end %>
+  </div>
+  <% end %>
 </div>

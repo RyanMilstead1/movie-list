@@ -4,6 +4,15 @@
     <h4 class="col-sm"><%= list.title %></h3>
     <h4 class="col-sm">Average Rating: <%= avg_rating(list) %></h4>
     <h4 class="col-sm"># of Movies: <%= list.movies.count %></h4>
+    <%= button_to "Delete", { action: "destroy", id: list.id }, method: :delete,
+        class: "btn btn-danger col-sm", id: "list-#{list.id}" %>
   </div>
   <% end %>
 </div>
+
+<script>
+$("#list-<%= list.id %>").click(function(event){
+    event.stopPropagation();
+    confirm("Are you sure?");
+});
+</script>
