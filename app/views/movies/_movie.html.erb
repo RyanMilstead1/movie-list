@@ -2,7 +2,7 @@
   <div class="row card-body">
     <div class="col-3">
       <% if movie.poster == "N/A" %>
-      <div class="col-sm poster"><%= asset_path("stock-poster") %></div>
+      <div class="col-sm poster"><%= image_tag("stock-poster.png") %></div>
       <% else %>
       <div class="col-sm poster"><%= image_tag(movie.poster) %></div>
       <% end %>
